@@ -6,18 +6,16 @@ spring:
     name: gateway
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: catalogServiceRoute
-          uri: lb://catalog-service/
-          predicates:
+      mvc:
+        routes:
+          - id: catalogServiceRoute
+            uri: lb://catalog-service/
+            predicates:
             - Path=/catalog/**
-        - id: moviesRoute
-          uri: lb://movie-service/
-          predicates:
-            - Path=/movie/**
+          - id: moviesRoute
+            uri: lb://movie-service/
+            predicates:
+              - Path=/movie/**
 
 eureka:
   client:
