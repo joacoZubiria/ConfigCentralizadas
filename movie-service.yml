@@ -2,17 +2,18 @@ server:
   port: ${PORT:${SERVER_PORT:0}}
 
 spring:
+    rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
+  zipkin:
+    base-url: http://localhost:9411/
+    enabled: true
+    sender:
+      type: rabbit
   application:
     name: movie-service
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3366/movie-dev
-    username: usr-movie
-    password: pwd-movie
-  jpa:
-    hibernate.ddl-auto: update
-    generate-ddl: true
-    show-sql: true
 
 message: "movie-service on"
 
