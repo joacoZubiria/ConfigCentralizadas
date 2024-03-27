@@ -2,6 +2,11 @@ server:
   port: ${PORT:${SERVER_PORT:0}}
 
 spring:
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
   application:
     name: movie-service
   datasource:
